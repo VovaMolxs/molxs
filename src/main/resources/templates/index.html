@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+</head>
+<body>
+
+<form  method="post" action="index">
+    <label for="text">Message:</label>
+    <input type="text" name="text" id="text">
+    <input type="submit" value="send">
+</form>
+
+<td>
+    <table>
+        <tbody>
+        <tr th:each="messages : ${messages}">
+            <td th:text="${messages.author}"></td>
+            <td th:text="${messages.text}"></td>
+
+        </tr>
+        </tbody>
+    </table>
+</td>
+
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+
+</body>
+</html>
